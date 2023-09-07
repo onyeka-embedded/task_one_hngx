@@ -17,7 +17,10 @@ class DetailAPI(APIView):
         current_day = datetime.datetime.now().strftime("%A")
         #utc time
         utc_time = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-       
+
+        github_file_url = "https://github.com/onyeka-embedded/task_one_hngx/tree/main/api"
+        github_repo_url = "https://github.com/onyeka-embedded/task_one_hngx"
+
         if track is None:
             return HttpResponse("Query parameter missing")
         else:
@@ -26,8 +29,8 @@ class DetailAPI(APIView):
                     "current_day": current_day,
                     "utc_time": utc_time, #"2023-08-21T15:04:05Z",
                     "track": track,
-                    "github_file_url": "https://github.com/username/repo/blob/main/file_name.ext",
-                    "github_repo_url": "https://github.com/username/repo",
+                    "github_file_url": github_file_url,
+                    "github_repo_url": github_repo_url,
                     "status_code": status.HTTP_200_OK
                     }       
 
