@@ -1,8 +1,7 @@
-from django.http import HttpResponse
-from django.http import JsonResponse
+from django.http import HttpResponse,JsonResponse
 from rest_framework import status
 from rest_framework.views import APIView
-import datetime
+from datetime import datetime
 import pytz
 
 # Create your views here.
@@ -12,11 +11,10 @@ class DetailAPI(APIView):
         #extract slack_name and track parametesr from the request
         slack_name = request.GET.get('slack_name')
         track = request.GET.get('track')
-
         #get current day of the week
-        current_day = datetime.datetime.now().strftime("%A")
+        current_day = datetime.now().strftime("%A")
         #utc time
-        utc_time = datetime.datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        utc_time = datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
         github_file_url = "https://github.com/onyeka-embedded/task_one_hngx/tree/main/api"
         github_repo_url = "https://github.com/onyeka-embedded/task_one_hngx"
